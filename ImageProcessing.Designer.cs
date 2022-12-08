@@ -1,6 +1,6 @@
 ﻿namespace ImageProcessing
 {
-    partial class Form1
+    partial class ImageProcessing
     {
         /// <summary>
         /// Required designer variable.
