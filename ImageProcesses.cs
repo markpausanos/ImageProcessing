@@ -53,7 +53,7 @@ namespace ImageProcessing
         public static void Histogram(ref Bitmap loaded, ref Bitmap processed)
         {
             if (loaded == null) { return; }
-            Bitmap loadedCopy = (Bitmap)loaded.Clone();
+            Bitmap loadedCopy = new Bitmap(loaded);
             Color pixel;
             byte average;
             int[] histogram = new int[256];
