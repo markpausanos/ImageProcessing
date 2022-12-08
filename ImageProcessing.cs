@@ -96,7 +96,7 @@ namespace ImageProcessing
         private void histogramToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (loaded == null) { return; }
-            Bitmap loadedCopy = loaded;
+            Bitmap loadedCopy = (Bitmap)loaded.Clone();
             Color pixel;
             byte average;
             int[] histogram = new int[256];
