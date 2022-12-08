@@ -49,6 +49,7 @@ namespace ImageProcessing
 
         private void basicCopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (loaded == null) { return; }
             processed = new Bitmap(loaded.Width, loaded.Height);
             for (int x = 0; x < loaded.Width; x++)
             {
@@ -63,6 +64,7 @@ namespace ImageProcessing
 
         private void greyscaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (loaded == null) { return; }
             processed = new Bitmap(loaded.Width, loaded.Height);
             for (int x = 0; x < loaded.Width; x++)
             {
@@ -79,6 +81,7 @@ namespace ImageProcessing
 
         private void colorInversionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (loaded == null) { return; }
             processed = new Bitmap(loaded.Width, loaded.Height);
             for (int x = 0; x < loaded.Width; x++)
             {
@@ -92,6 +95,7 @@ namespace ImageProcessing
         }
         private void histogramToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (loaded == null) { return; }
             Bitmap loadedCopy = loaded;
             Color pixel;
             byte average;
@@ -133,6 +137,7 @@ namespace ImageProcessing
 
         private void sepiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (loaded == null) { return; }
             processed = new Bitmap(loaded.Width, loaded.Height);
             double tr, tg, tb;
             for (int x = 0; x < loaded.Width; x++)
