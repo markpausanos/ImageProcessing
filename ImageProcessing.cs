@@ -105,11 +105,11 @@ namespace ImageProcessing
             {
                 for (int y = 0; y < loaded.Height; y++)
                 {
-                    pixel = loaded.GetPixel(x, y);
+                    pixel = loadedCopy.GetPixel(x, y);
                     average = (byte)((pixel.R + pixel.G + pixel.B) / 3);
                     loadedCopy.SetPixel(x, y, Color.FromArgb(average, average, average));
 
-                    pixel = loaded.GetPixel(x, y);
+                    pixel = loadedCopy.GetPixel(x, y);
                     histogram[pixel.R]++;
                 }
             }
