@@ -53,6 +53,7 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.button5 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button6 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -253,13 +254,25 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 20;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(999, 561);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(133, 30);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "Subtract Cam";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.timer1_Tick);
             // 
             // ImageProcessing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1481, 602);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.button3);
@@ -310,6 +323,7 @@
         private System.Windows.Forms.ToolStripMenuItem loadDevicesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopDevicesToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button button6;
     }
 }
 
