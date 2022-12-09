@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dIPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.basicCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,6 +38,8 @@
             this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subtractionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadDevicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopDevicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -48,6 +51,8 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.button5 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -61,7 +66,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dIPToolStripMenuItem,
             this.subtractionToolStripMenuItem,
-            this.clearImagesToolStripMenuItem});
+            this.clearImagesToolStripMenuItem,
+            this.loadDevicesToolStripMenuItem,
+            this.stopDevicesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1481, 31);
@@ -91,7 +98,7 @@
             // greyscaleToolStripMenuItem
             // 
             this.greyscaleToolStripMenuItem.Name = "greyscaleToolStripMenuItem";
-            this.greyscaleToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.greyscaleToolStripMenuItem.Size = new System.Drawing.Size(209, 28);
             this.greyscaleToolStripMenuItem.Text = "Grayscale";
             this.greyscaleToolStripMenuItem.Click += new System.EventHandler(this.grayscaleToolStripMenuItem_Click);
             // 
@@ -129,6 +136,20 @@
             this.clearImagesToolStripMenuItem.Size = new System.Drawing.Size(123, 27);
             this.clearImagesToolStripMenuItem.Text = "Clear Images";
             this.clearImagesToolStripMenuItem.Click += new System.EventHandler(this.clearImagesToolStripMenuItem_Click);
+            // 
+            // loadDevicesToolStripMenuItem
+            // 
+            this.loadDevicesToolStripMenuItem.Name = "loadDevicesToolStripMenuItem";
+            this.loadDevicesToolStripMenuItem.Size = new System.Drawing.Size(123, 27);
+            this.loadDevicesToolStripMenuItem.Text = "Load Devices";
+            this.loadDevicesToolStripMenuItem.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // stopDevicesToolStripMenuItem
+            // 
+            this.stopDevicesToolStripMenuItem.Name = "stopDevicesToolStripMenuItem";
+            this.stopDevicesToolStripMenuItem.Size = new System.Drawing.Size(120, 27);
+            this.stopDevicesToolStripMenuItem.Text = "Stop Devices";
+            this.stopDevicesToolStripMenuItem.Click += new System.EventHandler(this.stopDevicesToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -220,11 +241,26 @@
             this.trackBar1.Size = new System.Drawing.Size(169, 56);
             this.trackBar1.TabIndex = 11;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(352, 525);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(133, 30);
+            this.button5.TabIndex = 13;
+            this.button5.Text = "Load Camera";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.buttonChooseDevice);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ImageProcessing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1481, 602);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
@@ -270,6 +306,10 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem clearImagesToolStripMenuItem;
         private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ToolStripMenuItem loadDevicesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stopDevicesToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

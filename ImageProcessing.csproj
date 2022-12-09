@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Device.cs" />
+    <Compile Include="DeviceManager.cs" />
     <Compile Include="ImageProcesses.cs" />
     <Compile Include="ImageProcessing.cs">
       <SubType>Form</SubType>

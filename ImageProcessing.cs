@@ -3,12 +3,17 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
+using WebCamLib;
 
 namespace ImageProcessing
 {
     public partial class ImageProcessing : Form
     {
-        Bitmap loaded1, loaded2, processed;
+        Bitmap loaded1, loaded2, processed, b;
+        Device[] cameras;
+        Image bitmap;
+        Color backPixel;
+        IDataObject _dataObject;
         public ImageProcessing()
         {
             InitializeComponent();
@@ -117,6 +122,53 @@ namespace ImageProcessing
             button2.Enabled = false;
             button3.Enabled = false;
             button4.Enabled = false;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            cameras = DeviceManager.GetAllDevices();
+        }
+
+        private void buttonChooseDevice(object sender, EventArgs e)
+        {
+            cameras[0].ShowWindow(pictureBox1);
+        }
+
+        private void stopDevicesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cameras[0].Stop();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            cameras[0].Sendmessage();
+            _dataObject = Clipboard.GetDataObject();
+            bitmap = (Image)(_dataObject.GetData("System.Drawing.Bitmap", true));
+            b = new Bitmap(bitmap);
+            processed = new Bitmap(b.Width, b.Height);
+
+            Color green = Color.FromArgb(0, 255, 0);
+            int greygreen = (green.R + green.G + green.B) / 3;
+            int threshold = 10;
+            
+            for (int x = 0; x < b.Width; x++)
+            {
+                for (int y = 0; y < b.Height; y++)
+                {
+                    Color pixel = b.GetPixel(x, y);
+
+                    if (x < loaded2.Width && x > 0)
+                        backPixel = loaded2.GetPixel(x, y);
+
+                    int grey = (pixel.R + pixel.G + pixel.B) / 3;
+                    int subtractValue = Math.Abs(grey - greygreen);
+                    if (subtractValue > threshold)
+                        processed.SetPixel(x, y, pixel);
+                    else
+                        processed.SetPixel(x, y, backPixel);
+                }
+            }
+            pictureBox3.Image = processed;
         }
 
         private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
